@@ -21,6 +21,31 @@
               <a class="link is-info has-text-success-dark" href="https://meganschmidt23.github.io/TutoringWebsite/contact.html">Contact</a>
             </p>
           </nav>
+          <script>
+            import addContactInfo from './contact.js'
+            export default{
+                data:()=>({
+                  name: "",
+                  phoneNumber: "",
+                  email: "",
+                  subject: "",
+                  message: "",
+                  prefContact: "",
+                }),
+                methods: {
+                  async addContactInfo() {
+                      try {
+                          await addContactInfo(this.name, this.phoneNumber, this.email, this.subject, this.message, this.prefContact)
+                      } catch (error) {
+                          this.error = error;
+                      }
+                  }
+                },
+                created(){
+                      addContactInfo.Init()
+                  }
+                }
+          </script>
     </head>
     <body>
         <container>
@@ -31,28 +56,28 @@
             <div class="field">
             <label class="label">Full Name</label>
             <div class="control">
-              <input class="input" type="text" placeholder="Ex. John Smith">
+              <input class="input" type="text" placeholder="Ex. John Smith" name="name">
             </div>
           </div>
           
           <div class="field">
             <label class="label">Phone Number</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-success" type="text" placeholder="Ex. (800)555-5555">
+              <input class="input is-success" type="text" placeholder="Ex. (800)555-5555" name="phoneNumber">
             </div>
           </div>
           
           <div class="field">
             <label class="label">Email</label>
             <div class="control has-icons-left has-icons-right">
-              <input class="input is-danger" type="email" placeholder="Ex. me@aim.com">
+              <input class="input is-danger" type="email" placeholder="Ex. me@aim.com" name="email">
             </div>
           </div>
           
           <div class="field">
             <label class="label">Subject</label>
             <div class="control">
-              <div class="select" placeholder="Select Subject">
+              <div class="select" placeholder="Select Subject" name="subject">
                 <select>
                   <option selected>Select Option</option>
                   <option>Intro to Proof</option>
@@ -71,7 +96,7 @@
           <div class="field">
             <label class="label">Message</label>
             <div class="control">
-              <textarea class="textarea" placeholder="Ex. Hi, I need help with my assignment tomorrow. I am free from 3pm - 4pm."></textarea>
+              <textarea class="textarea" placeholder="Ex. Hi, I need help with my assignment tomorrow. I am free from 3pm - 4pm." name="message"></textarea>
             </div>
           </div>
           
@@ -79,11 +104,11 @@
             <div class="control">
             <label class="label">Preferred method of Contact</label>    
               <label class="radio">
-                <input type="radio" name="question">
+                <input type="radio" name="prefContact">
                 Email
             </label>
               <label class="radio">
-                <input type="radio" name="question">
+                <input type="radio" name="prefContact">
                 Phone
               </label>
             </div>
@@ -91,13 +116,14 @@
           
           <div class="field is-grouped">
             <div class="control">
-              <button class="button is-link">Submit</button>
+              <button class="button is-link" onclick="addContactInfo()">Submit</button>
             </div>
             <div class="control">
               <button class="button is-link is-light">Cancel</button>
             </div>
           </div>
-        </container>  
+        </container> 
+
     </body>
     <footer>
         <footer class="footer">
