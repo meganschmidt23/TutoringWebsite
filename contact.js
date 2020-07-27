@@ -9,19 +9,6 @@ const Contact = [
         prefContact: "Email"}
 ]
 
-function addContactInfo (name, phoneNumber, email, subject, message, prefContact) {
-    Contact.push(
-        {date:Date(), 
-        name:name, 
-        phoneNumber: phoneNumber,
-        email: email,
-        subject:subject,
-        message: message,
-        prefContact: prefContact})
-}
-
-
 module.export ={
-    Contact, 
-    addContactInfo
+    Contact
 }

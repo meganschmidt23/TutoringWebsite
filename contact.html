@@ -22,7 +22,7 @@
             </p>
           </nav>
           <script>
-            import addContactInfo from './contact.js'
+            import Contact from './contact.js'
             export default{
                 data:()=>({
                   name: "",
@@ -33,16 +33,15 @@
                   prefContact: "",
                 }),
                 methods: {
-                  async addContactInfo() {
-                      try {
-                          await addContactInfo(this.name, this.phoneNumber, this.email, this.subject, this.message, this.prefContact)
-                      } catch (error) {
-                          this.error = error;
-                      }
-                  }
-                },
-                created(){
-                      addContactInfo.Init()
+                  addContactInfo() {
+                      Contact.push({
+                        name: this.name,
+                        phoneNumber: this.phoneNumber,
+                        email: this.email,
+                        subject: this.subject,
+                        message: this.message,
+                        prefContact: this.prefContact})
+                      } 
                   }
                 }
           </script>
