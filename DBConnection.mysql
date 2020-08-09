@@ -1,0 +1,14 @@
+mysql -h localhost -p
+***Entered password****
+USE schmidtm6_db;
+    CREATE TABLE TutoringWebsiteContactPage (
+        ContactID INT(4) UNSIGNED NOT NULL AUTO_INCREMENT, 
+        Date TIMESTAMP  DEFAULT CURRENT_TIMESTAMP,
+        FullName CHAR(40) NOT NULL,
+        PhoneNumber INT(10),
+        Email CHAR(50) DEFAULT 'noemail@email.com',
+        Subject CHAR(30) NOT NULL,
+        Message TEXT(300) NOT NULL,
+        PrefContact CHAR(10) NOT NULL,
+        PRIMARY KEY(ContactID)
+        );
