@@ -22,151 +22,89 @@
             </p>
           </nav>
         </head>
-        <body>          
-          <?php
-              require "contactSubmission.php";
-              // define variables and set to empty values
-              $fullName = $phoneNumber = $email = $subject = $message = $prefContact = "";
-              $nameErr = $phoneOrEmailErr = $subjErr = $messageErr = "";
-
-              if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                  if (empty($_POST["fullName"])) {
-                      $nameErr = "Full name is required";
-                    } else {
-                      $fullName = test_input($_POST["fullName"]);
-                      // check if name only contains letters and whitespace
-                      if (!preg_match("/^[a-zA-Z ]*$/",$fullName)) {
-                          $nameErr = "Only letters and white space allowed"; 
-                      }
-                    }
-                  if (empty($_POST["phoneNumber"])&& empty($_POST["email"])) {
-                      $phoneOrEmailErr = "Phone and/or Email is required";
-                    } else {
-                      $phoneNumber = test_input($_POST["phoneNumber"]);
-                      if(!preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/", $phoneNumber)) {
-                          // $phone format is invalid
-                          $phoneOrEmailErr = "Invalid format of phone/email input";
-                        }
-                      $email = test_input($_POST["email"]);
-                        // check if e-mail address is well-formed
-                        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                              $phoneOrEmailErr = "Invalid format of phone/email input"; 
-                          }
-                    }
-                  if ($_POST["subject"] = "Select Option") {
-                      $subjErr = "Subject is required";
-                    } else {
-                      $subject = test_input($_POST["subject"]);
-
-                    } 
-                    if (empty($_POST["message"])) {
-                      $messageErr = "A quick message about your request is required";
-                    } else {
-                      $message = test_input($_POST["message"]);
-                      if (!preg_match("/^[a-zA-Z ]*$/",$message)) {
-                          $messageErr = "Only letters and white space allowed"; 
-                      }
-                    }     
-                    if (empty($_POST["prefContact"])) {
-                      $prefContact = "";
-                    } else {
-                      $prefContact = test_input($_POST["prefContact"]);
-                    }
-              }  
-
-              function test_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-              }
-            ?>  
+        <body> 
         <section>
-            <h1 class="title">Contact Us!</h1>
-            <h2 class="subtitle">Fill out the below form, and we will get back to you as soon as possible.</h2>
-        </section>
-        <form>
-        <section>
-          <form method="post" action="contactSubmission.php">
+          <h1 class="title">Contact Us!</h1>
+          <h2 class="subtitle">Fill out the below form, and we will get back to you as soon as possible.</h2>
+        </section>  
+          <form action="contactSubmission.php" method="post">
             <div class="field">
-            <label class="label">Full Name</label>
-            <div class="control">
-              <input class="input" type="text" placeholder="Ex. John Smith" name="name">
+              <label class="label">Full Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ex. John Smith" name="fullName">
+                </div>
             </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Phone Number</label>
-            <div class="control ">
-              <input class="input is-success" type="text" placeholder="Ex. 8005555555" name="phoneNumber">
+
+            <div class="field">
+              <label class="label">Phone Number</label>
+                <div class="control ">
+                  <input class="input is-success" type="text" placeholder="8005555555" name="phoneNumber">
+                </div>
             </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-              <input class="input is-danger" type="email" placeholder="Ex. me@aim.com" name="email">
-            </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Subject</label>
-            <div class="control">
-              <div class="select" placeholder="Select Subject" name="subject">
-                <select name = "subject">
-                  <option selected>Select Option</option>
-                  <option>Intro to Proof</option>
-                  <option>College Algebra</option>
-                  <option>Pre-Calculus</option>
-                  <option>Calculus I</option>
-                  <option>Calculus II</option>
-                  <option>Foundations of Algebra</option>
-                  <option>Applied Math I</option>
-                  <option>Linear Algebra</option>
-                </select>
+
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control">
+                <input class="input is-danger" type="email" placeholder="Ex. me@aim.com" name="email">
               </div>
             </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Ex. Hi, I need help with my assignment tomorrow. I am free from 3pm - 4pm." name="message"></textarea>
-            </div>
-          </div>
-          
-          <div class="field">
-            <div class="control">
-            <label class="label">Preferred method of Contact</label>    
-              <label class="radio">
-                <input type="radio" name="prefContact">
-                Email
-            </label>
-              <label class="radio">
-                <input type="radio" name="prefContact">
-                Phone
-              </label>
-            </div>
-          </div>
-          
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-link" input type="submit" >Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-link is-light">Cancel</button>
-            </div>
-          </div>
-        </section> 
-        </form>
 
-    </body>
-    <footer>
-        <footer class="footer">
-            <div class="content has-text-centered">
-              <p>
-                Code by <a href="https://www.linkedin.com/in/meganschmidt23/">Megan Schmidt</a>.
-              </p>
-            </div>  
-        </footer> 
-    </footer>
+            <div class="field">
+              <label class="label">Subject</label>
+              <div class="control">
+                <div class="select" placeholder="Select Subject">
+                  <select id="subject" name ="subject">
+                    <option selected value="NA">Select Option</option>
+                    <option value="Intro to Proof">Intro to Proof</option>
+                    <option value="College Algebra">College Algebra</option>
+                    <option value="Pre-Calculus">Pre-Calculus</option>
+                    <option value="Calculus I">Calculus I</option>
+                    <option value="Calculus II">Calculus II</option>
+                    <option value="Foundations of Algebra">Foundations of Algebra</option>
+                    <option value="Applied Math I">Applied Math I</option>
+                    <option value ="Linear Algebra">Linear Algebra</option> 
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Message</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Ex. Hi, I need help with my assignment tomorrow. I am free from 3pm - 4pm." name="message"></textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+              <label class="label">Preferred method of Contact</label>    
+                <label class="radio">
+                  <input type="radio" id="email" name="prefContact" value="email">
+                  Email
+                </label>
+                <label class="radio">
+                  <input type="radio" id="phone" name="prefContact" value="phone">
+                  Phone
+                </label>
+              </div>
+            </div>
+
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-link" type="submit" value="Submit">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </body>
+        <footer>
+          <footer class="footer">
+              <div class="content has-text-centered">
+                <p>
+                  Code by <a href="https://www.linkedin.com/in/meganschmidt23/">Megan Schmidt</a>.
+                </p>
+              </div>  
+          </footer> 
+          </footer>
