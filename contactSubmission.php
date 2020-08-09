@@ -22,7 +22,7 @@ function post_contactForm($fullName, $phoneNumber, $email, $subject, $message, $
 
 	$sql = "INSERT INTO TutoringWebsiteContactPage 
     (FullName, PhoneNumber, Email, Subject, Message, PrefContact)
-    VALUES ($fullName, $phoneNumber, $email, $subject, $message, $prefContact)";
+    VALUES ($fullName, $phoneNumber, $email, $subject, $message, $prefContact);";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
