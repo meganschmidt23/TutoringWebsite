@@ -25,11 +25,16 @@ function newApptReq($month, $day, $times, $subject, $tutorPref, $fullName, $emai
 		die("Connection failed: " .$conn->connect_error);
 	}
 
-	$sql = "INSERT INTO TutoringWebsiteContactPage (FullName, PhoneNumber, Email, Subject, Message, PrefContact) VALUES ('$fullName', '$phoneNumber', '$email', '$subject', '$message', '$prefContact');";
+	$sql = "INSERT INTO TutoringWebsiteAppointmentRequest (ReqMonth, ReqDate, ReqTime, Subject, TutorPref, FullName, PhoneNumber, Email) VALUES ('$month', '$day', '$times', '$subject', '$tutorPref', '$fullName', '$phoneNumber', '$email');";
 
     if ($conn->query($sql) === TRUE) {
 		echo "Thank you for your submission. ";
 		echo "Someone will contact you within 24 hours. ";
+		if ($confEmail == 'Yes') {
+			$subject = "Appointment Request Confirmation";
+			$message = "You have submitted a request for the following time(s): " + $month + $day + $times;
+			mail($email,$subject,$message);
+		}
     } else {
 		echo "Error: " . $sql . "<br>" . $conn->error;
 	}
@@ -37,6 +42,6 @@ function newApptReq($month, $day, $times, $subject, $tutorPref, $fullName, $emai
 	$conn->close();
 }	
 
-newContactRequest($fullName, $phoneNumber, $email, $subject, $message, $prefContact)
+newApptReq($month, $day, $times, $subject, $tutorPref, $fullName, $email, $phoneNumber, $confEmail)
 
 ?>
