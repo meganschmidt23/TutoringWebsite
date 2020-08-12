@@ -22,153 +22,72 @@
               <a class="link is-info" href="http://cs.newpaltz.edu/~schmidtm6/TutoringWebsite/contact.html">Contact</a>
             </p>
           </nav>
-          <style>
-            * {box-sizing: border-box;}
-            ul {list-style-type: none;}
-            body {font-family: Verdana, sans-serif;}
-
-            .month {
-              padding: 70px 25px;
-              width: 100%;
-              background: plum;
-              text-align: center;
-            }
-
-            .month ul {
-              margin: 0;
-              padding: 0;
-            }
-
-            .month ul li {
-              color: black;
-              font-size: 20px;
-              text-transform: uppercase;
-              letter-spacing: 3px;
-            }
-
-            .month .prev {
-              float: left;
-              padding-top: 10px;
-            }
-
-            .month .next {
-              float: right;
-              padding-top: 10px;
-            }
-
-            .weekdays {
-              margin: 0;
-              padding: 10px 0;
-              background-color: #ddd;
-            }
-
-            .weekdays li {
-              display: inline-block;
-              width: 13.6%;
-              color: #666;
-              text-align: center;
-            }
-
-            .days {
-              padding: 10px 0;
-              background: #eee;
-              margin: 0;
-            }
-
-            .days li {
-              list-style-type: none;
-              display: inline-block;
-              width: 13.6%;
-              text-align: center;
-              margin-bottom: 5px;
-              font-size:12px;
-              color: #777;
-            }
-
-            .days li .active {
-              padding: 5px;
-              background: greenyellow;
-              color: white !important
-            }
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-  .weekdays li, .days li {width: 12.5%;}
-  .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
-}
-</style>
     </head>
     <body>
-      <h1><strong>Tutoring Availability</strong></h1>
+      <div class="container is-fluid">
       <container>
-      <div class="month">      
-        <ul>
-          <li class="prev">&#10094;</li>
-          <li class="next">&#10095;</li>
-          <li>
-            July<br>
-            <span style="font-size:18px">2020</span>
-          </li>
-        </ul>
-      </div>
-      
-      <ul class="weekdays">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-      </ul>
-      
-      <ul class="days">  
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-      </ul>
+        <h1 class="title">Tutoring Appointments</h1>
       </container>
       <br>
-      <container>
-        <h4>Available Times</h4>
-        <div class="select is-multiple">
+      <form action="appointmentRequest.php" method="post">
+      <container> 
+       <h4>Month</h4> 
+        <div class="select" select id="month" name="month">
+          <select>
+            <option selected value="NA">Select Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+        </div>
+        <h4>Day</h4>
+        <div class="select is-multiple" select id="day" name="day">
           <select multiple size="3">
+            <option selected value="NA">Select Date(s)</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+          </select>
+        </div>
+        <h4>Preferred Times</h4>
+        <div class="select is-multiple">
+          <select multiple size="3" select id="times" name="times">
             <option value="8:00 am">8:00 am</option>
             <option value="8:30 am">8:30 am</option>
             <option value="9:00 am">9:00 am</option>
@@ -196,46 +115,53 @@
             <option value="8:00 pm">8:00 pm</option>
             <option value="8:30 pm">8:30 pm</option>
           </select>
+        </nav>
+      </container> 
           <br>
           <h4>Subject</h4>
-          <input class="input" type="text" placeholder="Ex. Algebra">
-           <br> 
-           <br>    
+          <div class="field">
+            <div class="control">
+              <div class="select" placeholder="Select Subject">
+                <select id="subject" name ="subject">
+                  <option selected value="NA">Select Subject</option>
+                  <option value="Intro to Proof">Intro to Proof</option>
+                  <option value="College Algebra">College Algebra</option>
+                  <option value="Pre-Calculus">Pre-Calculus</option>
+                  <option value="Calculus I">Calculus I</option>
+                  <option value="Calculus II">Calculus II</option>
+                  <option value="Foundations of Algebra">Foundations of Algebra</option>
+                  <option value="Applied Math I">Applied Math I</option>
+                  <option value ="Linear Algebra">Linear Algebra</option> 
+                </select>
+              </div>
+            </div>
+          </div>
+           <br>     
         <h4>Tutor Preference (Optional)</h4>
         <label class="checkbox">
-          <input type="checkbox">
-          Amelia            
-        </label>
+          <input type="checkbox" name ="tutorPref">Amelia          </label> <br>
         <label class="checkbox">
-          <input type="checkbox">
-          Chad    
-        </label>
+          <input type="checkbox" name="tutorPref">Chad         </label> <br>
         <label class="checkbox">
-          <input type="checkbox">
-          Matthew    
-        </label>
+          <input type="checkbox" name="tutorPref">Matthew        </label>
         <br>
         <br>
         <h4>Name</h4>
-        <input class="input" type="text" placeholder="Ex. Tom Smith">
+        <input class="input" type="text" placeholder="Ex. Tom Smith" name="fullName">
        <br>
         <h4>Email Address</h4> 
-        <input class="input" type="email" placeholder="Ex. tsmith@email.com">
+        <input class="input" type="email" placeholder="Ex. tsmith@email.com" name="email">
        <br>
         <h4>Phone Number</h4> 
-       <input class="input" type="tel" placeholder="Ex. (800)123-4567">
+       <input class="input" type="text" placeholder="Ex. (800)123-4567" name="phoneNumber">
        <br>
        <br>
        <p>Would you like an email confirmation of your appointment?</p>
        <div class="control">
         <label class="radio">
-          <input type="radio" name="answer">
-          Yes
-        </label>
+          <input type="radio" name="confEmail">Yes</label>
         <label class="radio">
-          <input type="radio" name="answer">
-          No
-        </label>
+          <input type="radio" name="confEmail">No</label>
       </div>
       </container>
       <container>
@@ -243,8 +169,11 @@
         <input class="button is-success" type="submit" value="Submit input">
         <input class="button is-danger" type="reset" value="Cancel">
       </container>
+    </form>
+      </div>  
     </body>
     <footer>
+      <br>
       <footer class="footer">
         <div class="content has-text-centered">
           <p>

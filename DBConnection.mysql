@@ -12,3 +12,19 @@ USE schmidtm6_db;
         PrefContact CHAR(10) NOT NULL,
         PRIMARY KEY(ContactID)
         );
+
+
+        CREATE TABLE TutoringWebsiteAppointmentRequest (
+        RequestID INT(4) UNSIGNED NOT NULL AUTO_INCREMENT, 
+        Date TIMESTAMP  DEFAULT CURRENT_TIMESTAMP,
+        ReqMonth CHAR(12) NOT NULL,
+        ReqDate CHAR(2) NOT NULL,
+        ReqTime CHAR(24) NOT NULL,
+        Subject CHAR(30) NOT NULL,
+        TutorPref CHAR(20) DEFAULT 'none',
+        TutorAssigned CHAR(20),
+        FullName CHAR(40) NOT NULL,
+        PhoneNumber CHAR(10),
+        Email CHAR(50) DEFAULT 'noemail@email.com',
+        PRIMARY KEY(RequestID)
+        );    

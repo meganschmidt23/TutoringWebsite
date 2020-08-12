@@ -1,13 +1,16 @@
 <?php 
 
-$fullName = $_POST['fullName'];
-$phoneNumber = $_POST['phoneNumber'];
-$email = $_POST['email'];
+$month = $_POST['month'];
+$day = $_POST['day'];
+$times = $_POST['times'];
 $subject = $_POST['subject'];
-$message = $_POST['message'];
-$prefContact = $_POST['prefContact'];
+$tutorPref = $_POST['tutorPref'];
+$fullName = $_POST['fullName'];
+$email = $_POST['email'];
+$phoneNumber = $_POST['phoneNumber'];
+$confEmail = $_POST['confEmail'];
 
-function newContactRequest($fullName, $phoneNumber, $email, $subject, $message, $prefContact){
+function newApptReq($month, $day, $times, $subject, $tutorPref, $fullName, $email, $phoneNumber, $confEmail){
 	/*Database INFO*/
 	$servername="localhost";
 	$username="schmidtm6";
