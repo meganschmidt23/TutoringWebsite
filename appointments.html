@@ -49,8 +49,9 @@
           </select>
         </div>
         <h4>Day</h4>
+        <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
         <div class="select is-multiple">
-          <select multiple size="3" select id="day" name="day">
+          <select id="day" type="array" for="day" name="day[]" size="4" multiple>
             <option selected value="NA">Select Date(s)</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -86,8 +87,9 @@
           </select>
         </div>
         <h4>Preferred Times</h4>
+        <p>Hold down the Ctrl (windows) / Command (Mac) button to select multiple options.</p>
         <div class="select is-multiple">
-          <select multiple size="3" select id="times" name="times">
+          <select id="times" type="array" for="times" name="times[]" size="4" multiple>
             <option value="8:00 am">8:00 am</option>
             <option value="8:30 am">8:30 am</option>
             <option value="9:00 am">9:00 am</option>
@@ -97,7 +99,7 @@
             <option value="11:00 am">11:00 am</option>
             <option value="11:30 am">11:30 am</option>
             <option value="12:00 pm">12:00 pm</option>
-            <option value="12:30 pm">12:30 am</option>
+            <option value="12:30 pm">12:30 pm</option>
             <option value="1:00 pm">1:00 pm</option>
             <option value="1:30 pm">1:30 pm</option>
             <option value="2:00 pm">2:00 pm</option>
@@ -139,11 +141,11 @@
            <br>     
         <h4>Tutor Preference (Optional)</h4>
         <label class="checkbox">
-          <input type="checkbox" name ="tutorPref">Amelia          </label> <br>
+          <input type="checkbox" name ="tutorPref" value="Amelia">Amelia          </label> <br>
         <label class="checkbox">
-          <input type="checkbox" name="tutorPref">Chad         </label> <br>
+          <input type="checkbox" name="tutorPref" value="Chad">Chad         </label> <br>
         <label class="checkbox">
-          <input type="checkbox" name="tutorPref">Matthew        </label>
+          <input type="checkbox" name="tutorPref" value="Matthew">Matthew        </label>
         <br>
         <br>
         <h4>Name</h4>
@@ -159,9 +161,9 @@
        <p>Would you like an email confirmation of your appointment?</p>
        <div class="control">
         <label class="radio">
-          <input type="radio" name="confEmail">Yes</label>
+          <input type="radio" name="confEmail" value="Yes">Yes</label>
         <label class="radio">
-          <input type="radio" name="confEmail">No</label>
+          <input type="radio" name="confEmail" value="No">No</label>
       </div>
       </container>
       <container>
